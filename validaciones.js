@@ -99,29 +99,6 @@ function formatearRut(rutIngresado) {
     return rut;
   }
 
-  function formatearRutAutomaticamente(valor) {
-  let rut = limpiarRut(valor);
-
-  // Permite únicamente números y la letra K
-  rut = rut.replace(/[^0-9K]/g, "");
-
-  // Máximo: 8 números y un dígito verificador
-  rut = rut.slice(0, 9);
-
-  if (rut.length <= 1) {
-    return rut;
-  }
-
-  const cuerpo = rut.slice(0, -1);
-  const digitoVerificador = rut.slice(-1);
-
-  const cuerpoFormateado = cuerpo.replace(
-    /\B(?=(\d{3})+(?!\d))/g,
-    "."
-  );
-
-  return `${cuerpoFormateado}-${digitoVerificador}`;
-}
   const cuerpo = rut.slice(0, -1);
   const digitoVerificador = rut.slice(-1);
 
@@ -570,12 +547,6 @@ function obtenerDatosFormulario() {
 obtenerElemento("rut").addEventListener(
   "blur",
   validarCampoRut
-);
-
-obtenerElemento("rut").addEventListener(
-  "blur",
-  validarCampoRut
-
 );
 
 obtenerElemento("nombres").addEventListener(

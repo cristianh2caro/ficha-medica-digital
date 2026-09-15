@@ -25,6 +25,9 @@ const resultadosBusqueda =
 const pantallaCerrada =
   document.getElementById("pantallaCerrada");
 
+const notificacionSistema =
+  document.getElementById("notificacionSistema");
+
 /* ========================================
    ALMACENAMIENTO TEMPORAL
 ======================================== */
@@ -102,16 +105,12 @@ function reiniciarFormulario() {
     document.getElementById("rut").focus();
   }, 100);
 }
-  formularioPaciente.reset();
 
-  limpiarTodosLosErrores();
-
-  document.getElementById(
-    "contadorComentarios"
-  ).textContent = "0/500";
-
-  document.getElementById("rut").focus();
-
+function mostrarNotificacion(mensaje, tipo) {
+  notificacionSistema.textContent = mensaje;
+  notificacionSistema.className =
+    `notificacion notificacion-${tipo}`;
+}
 
 function normalizarTexto(texto) {
   return texto
@@ -157,8 +156,9 @@ formularioPaciente.addEventListener(
       validarFormularioCompleto();
 
     if (!formularioValido) {
-      alert(
-        "Revise los campos destacados antes de guardar."
+      mostrarNotificacion(
+        "Revise los campos destacados antes de guardar.",
+        "error"
       );
 
       enfocarPrimerError();
@@ -186,9 +186,10 @@ formularioPaciente.addEventListener(
       );
 
       if (!confirmarSobrescritura) {
-        alert(
+        mostrarNotificacion(
           "La operación fue cancelada. " +
-          "La ficha anterior no fue modificada."
+          "La ficha anterior no fue modificada.",
+          "advertencia"
         );
 
         return;
@@ -207,11 +208,12 @@ formularioPaciente.addEventListener(
 
       guardarListaPacientes(pacientes);
 
-      alert(
-        "La ficha médica fue actualizada correctamente."
-      );
-
       reiniciarFormulario();
+
+      mostrarNotificacion(
+        "La ficha médica fue actualizada correctamente.",
+        "exito"
+      );
 
       return;
     }
@@ -225,11 +227,12 @@ formularioPaciente.addEventListener(
 
     guardarListaPacientes(pacientes);
 
-    alert(
-      "La ficha médica fue guardada correctamente."
-    );
-
     reiniciarFormulario();
+
+    mostrarNotificacion(
+      "La ficha médica fue guardada correctamente.",
+      "exito"
+    );
   }
 );
 
@@ -243,8 +246,9 @@ btnLimpiar.addEventListener(
     if (!formularioTieneDatos()) {
       reiniciarFormulario();
 
-      alert(
-        "El formulario ya se encontraba vacío."
+      mostrarNotificacion(
+        "El formulario ya se encontraba vacío.",
+        "advertencia"
       );
 
       return;
@@ -260,8 +264,9 @@ btnLimpiar.addEventListener(
 
     reiniciarFormulario();
 
-    alert(
-      "El formulario fue limpiado correctamente."
+    mostrarNotificacion(
+      "El formulario fue limpiado correctamente.",
+      "exito"
     );
   }
 );

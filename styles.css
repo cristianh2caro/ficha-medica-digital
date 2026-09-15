@@ -659,3 +659,35 @@ footer p {
   color: #789096;
   font-size: 11px;
 }
+
+/* ========================================
+   NOTIFICACIONES DEL SISTEMA
+======================================== */
+
+.notificacion {
+  margin: 8px 0 18px;
+  padding: 13px 16px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.notificacion-exito {
+  border-color: #8ac9b8;
+  background: #e9f7f2;
+  color: #17624f;
+}
+
+.notificacion-error {
+  border-color: #e2a8ae;
+  background: #fff0f1;
+  color: #9b2f3d;
+}
+
+.notificacion-advertencia {
+  border-color: #e8c57e;
+  background: #fff8e8;
+  color: #765411;
+}
