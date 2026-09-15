@@ -1,0 +1,130 @@
+[
+  {
+    "id": "CN-01",
+    "name": "Carga del formulario principal",
+    "type": "Caja negra",
+    "mode": "Automática",
+    "status": "Aprobado",
+    "observed": "Se detectaron los 10 campos y los botones Guardar, Limpiar y Cerrar."
+  },
+  {
+    "id": "CN-02",
+    "name": "Guardar formulario vacío",
+    "type": "Caja negra",
+    "mode": "Automática",
+    "status": "Aprobado",
+    "observed": "Los 10 campos obligatorios mostraron error y no se almacenó información."
+  },
+  {
+    "id": "CN-03",
+    "name": "Guardar registro válido",
+    "type": "Caja negra",
+    "mode": "Automática",
+    "status": "Aprobado",
+    "observed": "Se mostró confirmación, se almacenó un registro y el formulario quedó limpio."
+  },
+  {
+    "id": "CN-04",
+    "name": "Rechazar RUT con dígito incorrecto",
+    "type": "Caja negra",
+    "mode": "Automática",
+    "status": "Aprobado",
+    "observed": "El sistema informó RUT inválido y no creó un segundo registro."
+  },
+  {
+    "id": "CN-05",
+    "name": "Limpiar con confirmación",
+    "type": "Caja negra",
+    "mode": "Automática",
+    "status": "Aprobado",
+    "observed": "La confirmación aceptada limpió campos, errores y contador sin guardar datos parciales."
+  },
+  {
+    "id": "CN-06",
+    "name": "Cerrar, cancelar, cerrar y reabrir",
+    "type": "Caja negra",
+    "mode": "Automática",
+    "status": "Aprobado",
+    "observed": "Cancelar conservó la vista; confirmar mostró el cierre y Reabrir restauró el formulario."
+  },
+  {
+    "id": "CN-07",
+    "name": "Buscar por apellido sin distinguir acentos ni mayúsculas",
+    "type": "Caja negra",
+    "mode": "Automática",
+    "status": "Aprobado",
+    "observed": "La búsqueda 'munoz' recuperó a Amanda Muñoz Lagos."
+  },
+  {
+    "id": "CN-08",
+    "name": "Buscar apellido inexistente",
+    "type": "Caja negra",
+    "mode": "Automática",
+    "status": "Aprobado",
+    "observed": "El sistema mostró 'Sin coincidencias' sin producir errores."
+  },
+  {
+    "id": "CN-09",
+    "name": "Rechazar fechas fuera del rango permitido",
+    "type": "Caja negra",
+    "mode": "Automática",
+    "status": "Aprobado",
+    "observed": "La fecha futura y la edad superior a 120 años fueron rechazadas sin guardar."
+  },
+  {
+    "id": "CN-10",
+    "name": "Validar correo y teléfono",
+    "type": "Caja negra",
+    "mode": "Automática",
+    "status": "Aprobado",
+    "observed": "El sistema rechazó simultáneamente el correo sin formato y el teléfono de tres dígitos."
+  },
+  {
+    "id": "CB-01",
+    "name": "Rutas del algoritmo de RUT",
+    "type": "Caja blanca",
+    "mode": "Automática",
+    "status": "Aprobado",
+    "observed": "Se cubrieron formato inválido, dígito normal, rama 0, rama K y dígito incorrecto."
+  },
+  {
+    "id": "CB-02",
+    "name": "Rutas de validación integral",
+    "type": "Caja blanca",
+    "mode": "Automática",
+    "status": "Aprobado",
+    "observed": "La función devolvió false con entradas inválidas y true con los diez campos válidos."
+  },
+  {
+    "id": "CB-03",
+    "name": "Ramas de alta y sobreescritura",
+    "type": "Caja blanca",
+    "mode": "Automática",
+    "status": "Aprobado",
+    "observed": "Se ejecutaron las ramas alta, duplicado-cancelar y duplicado-aceptar sin crear duplicados."
+  },
+  {
+    "id": "CB-04",
+    "name": "Rutas de búsqueda y escape de salida",
+    "type": "Caja blanca",
+    "mode": "Automática",
+    "status": "Aprobado",
+    "observed": "Se cubrieron normalización, escape HTML y rechazo de búsquedas menores a dos caracteres."
+  },
+  {
+    "id": "INT-01",
+    "name": "Integración formulario, validaciones, almacenamiento y búsqueda",
+    "type": "Integración",
+    "mode": "Automática",
+    "status": "Aprobado",
+    "observed": "HTML, validaciones.js, app.js y localStorage trabajaron en conjunto para guardar y recuperar el registro."
+  },
+  {
+    "id": "REG-01",
+    "name": "Regresión del flujo principal",
+    "type": "Regresión",
+    "mode": "Automática",
+    "status": "Aprobado",
+    "observed": "La repetición confirmó Guardar, Limpiar, Cerrar/Reabrir, Buscar e integración sin regresiones."
+  }
+]
